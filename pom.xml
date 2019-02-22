@@ -32,7 +32,42 @@
 		<groupId>gr.spinellis.ckjm</groupId>
     	<artifactId>ckjm_ext</artifactId>    
     	<version>2.3-SNAPSHOT</version>	  		  	
-	</dependency>
-	
+	</dependency>	
   </dependencies>
+  
+  <build>
+	  <plugins>
+		<plugin>
+	      <artifactId>maven-assembly-plugin</artifactId>
+	      <configuration>
+	        <archive>
+	          <manifest>	            
+	            <mainClass>br.com.ads.extract_metrics.App</mainClass>
+	          </manifest>
+	        </archive>
+	        <descriptorRefs>
+	          <descriptorRef>jar-with-dependencies</descriptorRef>
+	        </descriptorRefs>
+	      </configuration>
+	    </plugin>
+	    <plugin>
+	    
+	      <!-- Build an executable JAR -->
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-jar-plugin</artifactId>
+	      <version>3.1.0</version>
+	      <configuration>
+			<source>1.8</source>
+			<target>1.8</target>
+			  <archive>
+			    <manifest>
+			      <addClasspath>true</addClasspath>
+			      <classpathPrefix>lib/</classpathPrefix>
+			      <mainClass>br.com.ads.extract_metrics.App</mainClass>
+			    </manifest>
+			  </archive>		        	        			
+	      </configuration>
+	    </plugin>
+	  </plugins>
+	</build>
 </project>
