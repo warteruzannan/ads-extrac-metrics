@@ -17,7 +17,7 @@ public class FilesFilterHelper {
 	 * @return
 	 * @throws IOException
 	 */
-	public static String[] searchInDirectory(String path) throws IOException{
+	public static String[] searchInDirectory(String path) throws IOException{		
 		List<String> files = Files.walk(Paths.get(path))
 								.map(f ->  f.toAbsolutePath().toString())
 								.filter(f -> f.endsWith(".class"))
