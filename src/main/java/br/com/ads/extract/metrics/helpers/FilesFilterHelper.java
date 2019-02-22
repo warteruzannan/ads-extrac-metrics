@@ -19,11 +19,12 @@ public class FilesFilterHelper {
 	 */
 	public static String[] searchInDirectory(String path) throws IOException{
 		List<String> files = Files.walk(Paths.get(path))
-								.map(f -> { return f.toAbsolutePath().toString(); })
+								.map(f ->  f.toAbsolutePath().toString())
 								.filter(f -> f.endsWith(".class"))
 								.collect(Collectors.toList());
 		
-		return files.toArray(new String[files.size()]);				
+		return files.toArray(new String[files.size()]);
+
 	}
 	
 	/**
@@ -34,7 +35,7 @@ public class FilesFilterHelper {
 	public static String[] getAllInRepository(String path) {
 		return new File(path).list(new FilenameFilter() {
 			@Override
-			public boolean accept(File current, String name) {
+			public boolean accept(File current, String name) {				
 				return new File(current, name).isDirectory();
 			}
 			

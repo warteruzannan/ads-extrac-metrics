@@ -42,7 +42,7 @@
 	      <configuration>
 	        <archive>
 	          <manifest>	            
-	            <mainClass>br.com.ads.extract_metrics.App</mainClass>
+	            <mainClass>br.com.ads.extract.metrics.Application</mainClass>
 	          </manifest>
 	        </archive>
 	        <descriptorRefs>
@@ -63,7 +63,7 @@
 			    <manifest>
 			      <addClasspath>true</addClasspath>
 			      <classpathPrefix>lib/</classpathPrefix>
-			      <mainClass>br.com.ads.extract_metrics.App</mainClass>
+			      <mainClass>br.com.ads.extract.metrics.Application</mainClass>
 			    </manifest>
 			  </archive>		        	        			
 	      </configuration>
