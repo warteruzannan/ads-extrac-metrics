@@ -23,6 +23,6 @@ public class CommandLineParser {
 	}
 	
 	public String getNameForResultName(String directory) {
-		return directory  + ".txt";		
+		return "./metrics/" + directory  + ".txt";		
 	}
 }

@@ -10,31 +10,27 @@ import br.com.ads.extract.metrics.helpers.OutputStringBuffer;
 import br.com.advanse.jdecorator.service.AnalyzerMetrics;
 import gr.spinellis.ckjm.MetricsFilter;
 
-/**
- * Hello world!
- *
- */
+
 public class Application {
 	public static void main(String[] args) {		
 		CommandLineParser cmdLineParser = new CommandLineParser(args);
-
-		
-		if (cmdLineParser.analisysAllInRepository()) {
-			String toPath = cmdLineParser.getRepository();
-			for (String directory : FilesFilterHelper.getAllInRepository(toPath)) {				
-				try {
-					Application.analisysToRepository(toPath + directory, cmdLineParser.getNameForResultName(directory));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		} else {
-			try {
-				Application.analisysToRepository(cmdLineParser.getRepository(), cmdLineParser.getNameForResultName(cmdLineParser.getRepository()));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+				
+		String toPath = cmdLineParser.getRepository();
+		for (String  directory : FilesFilterHelper.getAllInRepository(toPath)) {
+			final String pathProject = directory; 
+			
+			Thread thread = new Thread() {
+				public void run() {
+					try {
+						Application.analisysToRepository(toPath + pathProject, cmdLineParser.getNameForResultName(pathProject));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}	
+				}				
+			};	
+			
+			thread.start();
+		}		
 	}
 
 	public static void analisysToRepository(String repository, String fileName) throws IOException, RuntimeException {
