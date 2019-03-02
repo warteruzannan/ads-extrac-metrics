@@ -14,6 +14,7 @@ public class OutputStringBuffer implements CkjmOutputHandler{
 	@Override
 	public void handleClass(String name, ClassMetrics classMetrics) {
 		
+		
 		if(classMetrics != null) {
 			String metrics = classMetrics.toString();											
 			this.stringBuffer.append(name + "," + metrics.substring(0, metrics.indexOf("\n") + 1).replaceAll(",", ".").replaceAll(" ", ","));				
