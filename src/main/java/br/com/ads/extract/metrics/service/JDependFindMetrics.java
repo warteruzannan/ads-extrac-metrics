@@ -10,7 +10,7 @@ import java.util.Map;
 import jdepend.framework.JDepend;
 import jdepend.framework.JavaPackage;
 
-public class JDependFindMetrics implements Analyzer{			
+public class JDependFindMetrics implements Detector{			
 	
 	@SuppressWarnings("unchecked")
 	@Override

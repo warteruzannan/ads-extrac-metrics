@@ -1,4 +1,4 @@
-package br.com.ads.extract.metrics;
+package br.com.ads.extract.metrics.service;
 
 import static org.junit.Assert.*;
 

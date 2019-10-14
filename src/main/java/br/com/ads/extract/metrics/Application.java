@@ -3,47 +3,58 @@ package br.com.ads.extract.metrics;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import br.com.ads.extract.metrics.helpers.CommandLineParser;
 import br.com.ads.extract.metrics.helpers.FilesFilterHelper;
-import br.com.ads.extract.metrics.helpers.OutputStringBuffer;
-import br.com.ads.extract.metrics.service.JDependFindMetrics;
-import gr.spinellis.ckjm.MetricsFilter;
-
 
 public class Application {
-	public static void main(String[] args) {
 		
+	public static void main(String[] args) {		
 		CommandLineParser cmdLineParser = new CommandLineParser(args);
+		
+		
 				
 		String toPath = cmdLineParser.getRepository();
+		
+		
+		/**
+		 * Caso o usuário passe -p
+		 */
+		if(cmdLineParser.useDefaultOutput()) {
+			try {
+				Application.analisysToRepository(toPath, null, true);				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+			return;
+		}
+		
+		
 		String[] directories = FilesFilterHelper.getAllInRepository(toPath);
 		
 		for(int i = 0; i < directories.length; i++) {							
 			System.out.println("Analisando " + i + " de " + directories.length + ". Agudarde..");
 			try {
-				Application.analisysToRepository(toPath + directories[i], cmdLineParser.getNameForResultName(directories[i]));
+				Application.analisysToRepository(toPath + directories[i], cmdLineParser.getNameForResultName(directories[i]), false);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-				
+		}				
 	}
-
-	public static void analisysToRepository(String repository, String fileName) throws IOException, RuntimeException {
+	
+	
+	public static void analisysToRepository(String repository, String fileName, boolean print) throws IOException, RuntimeException {
 		System.out.println("Analisando: " + repository + "...");
-		OutputStringBuffer buffer = new OutputStringBuffer();
-
-		String[] classes = FilesFilterHelper.searchInDirectory(repository);
-		MetricsFilter.runMetrics(classes, buffer, false);
-
-		String jdecorator = "";//(new JDependFindMetrics()).findMetrics(repository);
-		String ckmjExtend = buffer.getBufferResult();
-
-		Files.write(Paths.get(fileName), (jdecorator + ckmjExtend).getBytes());
+		ADSFindMetrics adsFindMetrics = new ADSFindMetrics();
 		
+		if(print)  {
+			System.out.println(adsFindMetrics.find(repository));
+			return;
+		}
+		
+		Files.write(Paths.get(fileName),adsFindMetrics.find(repository).getBytes());		
 		System.out.println("Salvo em: " + fileName);
 		
 	}

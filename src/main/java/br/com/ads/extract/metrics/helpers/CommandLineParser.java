@@ -18,6 +18,10 @@ public class CommandLineParser {
 		return  this.args.contains("r");			
 	}	
 	
+	public boolean useDefaultOutput() {
+		return  this.args.contains("-p");			
+	}
+	
 	public String getRepository() {
 		return this.args.get(0);
 	}
