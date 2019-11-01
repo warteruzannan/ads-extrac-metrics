@@ -10,14 +10,11 @@ import br.com.ads.extract.metrics.helpers.FilesFilterHelper;
 
 public class Application {
 		
-	public static void main(String[] args) {		
+	public static void main(String[] args) {			
 		CommandLineParser cmdLineParser = new CommandLineParser(args);
-		
-		
-				
+							
 		String toPath = cmdLineParser.getRepository();
-		
-		
+			
 		/**
 		 * Caso o usuário passe -p
 		 */
@@ -45,8 +42,7 @@ public class Application {
 	}
 	
 	
-	public static void analisysToRepository(String repository, String fileName, boolean print) throws IOException, RuntimeException {
-		System.out.println("Analisando: " + repository + "...");
+	public static void analisysToRepository(String repository, String fileName, boolean print) throws IOException, RuntimeException {		
 		ADSFindMetrics adsFindMetrics = new ADSFindMetrics();
 		
 		if(print)  {

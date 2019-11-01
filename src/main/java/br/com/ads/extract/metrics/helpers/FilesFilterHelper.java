@@ -9,6 +9,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FilesFilterHelper {
+	
+	protected static boolean ignoreThisFile(String path) {
+		
+		if (path.contains("com/google/android") ||
+			path.contains("android/support/v4") ||
+			path.contains("com/google/firebase.") ||
+			path.contains("android/support/v7") ||
+			path.contains("com/google/maps") ||
+			path.contains("com/google/ads") ||
+			path.contains("android/support/v7") ||
+			path.contains("com/bumptech/glide")) {
+			return true;
+		}
+		
+		return false;
+						
+	}
 
 	/**
 	 * Busca todos os arquivos .class em um diretório 
@@ -20,7 +37,7 @@ public class FilesFilterHelper {
 	public static String[] searchInDirectory(String path) throws IOException{		
 		List<String> files = Files.walk(Paths.get(path))
 								.map(f ->  f.toAbsolutePath().toString())
-								.filter(f -> f.endsWith(".class"))
+								.filter(f -> f.endsWith(".class") && !FilesFilterHelper.ignoreThisFile(f))
 								.collect(Collectors.toList());
 		
 		return files.toArray(new String[files.size()]);

@@ -19,18 +19,18 @@ public class OutputStringBuffer implements CkjmOutputHandler{
 	@Override
 	public void handleClass(String name, ClassMetrics classMetrics) {		
 		
-		if(classMetrics != null) {
-			//String metrics = classMetrics.toString();						
-			//int indexOfSlashN = metrics.indexOf("\n") + 1;
-			//indexOfSlashN = indexOfSlashN > metrics.length() ? indexOfSlashN - 1:indexOfSlashN;
-			
-			//String[] splitedMetrics = metrics.substring(0, indexOfSlashN).replaceAll(",", ".").replaceAll("\n", "").split(" ");
-			
+		if(classMetrics != null) {						
 			Map<Object,Object> classInfos = new HashMap<>();
+			 			
+			classInfos.put("name", name);
 			
-			// FIXME: APENAS PEGAR A MÉTRICA NA INTERFACE FORNECIDA POR ClassMetrics
-			classInfos.put("name", name);		
-			classInfos.put("package",name.substring(0,name.lastIndexOf(".")));
+			////////////////////////////////
+			if(name.contains("."))
+				classInfos.put("package",name.substring(0,name.lastIndexOf(".")));
+			else
+				classInfos.put("package","Default");
+			//////////////////////////////				
+				
 			classInfos.put("WMC", classMetrics.getWmc());
 			classInfos.put("DIT", classMetrics.getDit());
 			classInfos.put("NOC", classMetrics.getNoc());
@@ -48,26 +48,7 @@ public class OutputStringBuffer implements CkjmOutputHandler{
 			classInfos.put("CAM", classMetrics.getCam());
 			classInfos.put("IC", classMetrics.getIc());
 			classInfos.put("CBM", classMetrics.getCbm());
-			classInfos.put("AMC", classMetrics.getAmc());
-			
-			/*classInfos.put("WMC", Float.parseFloat(splitedMetrics[0]));
-			classInfos.put("DIT", Float.parseFloat(splitedMetrics[1]));
-			classInfos.put("NOC", Float.parseFloat(splitedMetrics[2]));
-			classInfos.put("CBO", Float.parseFloat(splitedMetrics[3]));
-			classInfos.put("RFC", Float.parseFloat(splitedMetrics[4]));
-			classInfos.put("LCOM", Float.parseFloat(splitedMetrics[5]));
-			classInfos.put("Ca", Float.parseFloat(splitedMetrics[6]));
-			classInfos.put("Ce", Float.parseFloat(splitedMetrics[7]));
-			classInfos.put("NPM", Float.parseFloat(splitedMetrics[8]));
-			classInfos.put("LCOM3", Float.parseFloat(splitedMetrics[9]));
-			classInfos.put("LOC", Float.parseFloat(splitedMetrics[10]));
-			classInfos.put("DAM", Float.parseFloat(splitedMetrics[11]));
-			classInfos.put("MOA", Float.parseFloat(splitedMetrics[12]));
-			classInfos.put("MFA", Float.parseFloat(splitedMetrics[13]));
-			classInfos.put("CAM", Float.parseFloat(splitedMetrics[14]));
-			classInfos.put("IC", Float.parseFloat(splitedMetrics[15]));
-			classInfos.put("CBM", Float.parseFloat(splitedMetrics[16]));
-			classInfos.put("AMC", Float.parseFloat(splitedMetrics[17]));*/
+			classInfos.put("AMC", classMetrics.getAmc());					
 			
 			////////////////////////////////////////////////////////////////////////
 			int cc = 0;			

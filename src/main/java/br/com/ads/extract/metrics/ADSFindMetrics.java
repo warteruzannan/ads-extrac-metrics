@@ -22,6 +22,9 @@ public class ADSFindMetrics {
 		JDependFindMetrics jDependFindMetrics = new JDependFindMetrics();
 		
 		String[] classes = FilesFilterHelper.searchInDirectory(directory);
+		
+
+		
 		MetricsFilter.runMetrics(classes, buffer, false);
 
 		List<Map<Object,Object>> packages  = jDependFindMetrics.findMetrics(directory);
@@ -29,6 +32,7 @@ public class ADSFindMetrics {
 		Map<Object,Object> infos = InfosFactory.create(directory);
 		List<Map<Object,Object>> infos_classes = buffer.getBufferResult();
 		
+		// FIXME:Corrigir isso para que a classe já seja setada diretamente pelo acesso ao 'nome' do pacote
 		for(Map<Object,Object> pck:packages) {
 			List<Map<Object,Object>> pck_classes = infos_classes.stream()
 													.filter(p -> p.get("package").equals(pck.get("name")))

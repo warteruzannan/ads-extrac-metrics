@@ -52,7 +52,20 @@ public final class JDependBuilder {
 			this.filters.add("javax.*");			
 			this.filters.add("org.junit");
 			this.filters.add("org.junit.*");
-			this.filters.add("junit.*");			
+			this.filters.add("junit.*");
+			this.filters.add("com.google.android.*");			
+			this.filters.add("com.google.firebase");
+			this.filters.add("com.google.firebase.*");
+			this.filters.add("android.support.*");			
+			this.filters.add("com.google.maps");
+			this.filters.add("com.google.maps.*");
+			this.filters.add("com.google.ads");
+			this.filters.add("com.google.ads.*");
+			this.filters.add("com.bumptech.glide.*");
+			this.filters.add("com.bluejamesbond.*");
+			
+			
+			
 		}
 		
 		PackageFilter filter 	= new PackageFilter(filters);		
