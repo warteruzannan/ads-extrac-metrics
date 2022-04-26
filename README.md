@@ -3,7 +3,15 @@
 ADS-Extract-Metrics is lib used by InSet tool to extract metrics from oriented objected systems. 
 Intelligent Smell Detector (InSet) is a tool created by Warteruzannan Soyer Cunha for detecting architectural smells using machine learning. It was created within the AdvanSE laboratory of the Universidade Federal de São Carlos (UFSCar).
 
-You can cite this using 
+### Install dependencies using Mavem
+Execute `maven clean`
+
+
+### Build:
+To build it tool execute the file `build.sh`
+
+
+### You can cite this using 
 
 ```
 @INPROCEEDINGS{warteruzannan2020,
