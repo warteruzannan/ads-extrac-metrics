@@ -1,58 +1,60 @@
-# Advanced Detect Smell(ADS) Extrac Metrics :mag_right: 
+# Advanced Detect Smell(ADS) Extrac Metrics :mag_right:
 
 [![Maven Central status](https://img.shields.io/maven-central/v/org.commonmark/commonmark.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.commonmark%22)
 [![javadoc](https://www.javadoc.io/badge/org.commonmark/commonmark.svg?color=blue)](https://www.javadoc.io/doc/org.commonmark/commonmark)
 
-
-ADS-Extract-Metrics is the lib used by InSet tool to extract metrics from oriented objected systems. 
+ADS-Extract-Metrics is the lib used by InSet tool to extract metrics from oriented objected systems.
 Intelligent Smell Detector ([InSet](https://inset-tool.github.io/])) is a tool created by Warteruzannan Soyer Cunha for detecting architectural smells using machine learning. It was created within the AdvanSE laboratory of the Universidade Federal de São Carlos (UFSCar).
 
-(ADS) Extrac Metrics uses the libs JDpende and CKJM Extend behind de scenes. 
+(ADS) Extrac Metrics uses the libs JDpende and CKJM Extend behind de scenes.
 
-### Requiriments 
+<img src="./docs/logo.png" width="100">
+
+### Requiriments
+
 - Java +8
 
 ### Using JAR as CLI
 
 `java -jar ads-extract-metrics-0.0.4.jar <path of java project> -p <path to output files>`
 
-### Example of Output 
+### Example of Output
 
-Output shows the metrics by packages and classes. 
+Output shows the metrics by packages and classes.
 
-| Name of metrics | Class or package | Type of Value |
-| ------ | ------ |------ |
-| AMC | class | Numeric |
-| Name | class | String |
-| CAM | class | Numeric |
-| CBM | class | Numeric |
-| CBO | class | Numeric |
-| Ca | class | Numeric |
-| Ce | class | Numeric |
-| DAM | class | Numeric |
-| DIT | class | Numeric |
-| IC | class | Numeric |
-| LCOM | class | Numeric |
-| LCOM3 | class | Numeric |
-| LOC | class | Numeric |
-| MFA | class | Numeric |
-| MOA | class | Numeric |
-| NOC | class | Numeric |
-| NPM | class | Numeric |
-| RFC | class | Numeric |
-| WMC | class | Numeric |
-| abstractClassCount | package | Numeric |
-| abstractness | package | Numeric |
-| afferentCoupling | package | Numeric |
-| afferents | package | Numeric |
-| classCount | package | Numeric |
-| concreteClassCount | package | Numeric |
-| containsCycle | package | Numeric |
-| distance | package | Numeric |
-| efferentCoupling | package | Numeric |
-| efferents | package | Numeric |
-| instability | package | Numeric |
-| volatility | package | Numeric |
+| Name of metrics    | Class or package | Type of Value |
+| ------------------ | ---------------- | ------------- |
+| AMC                | class            | Numeric       |
+| Name               | class            | String        |
+| CAM                | class            | Numeric       |
+| CBM                | class            | Numeric       |
+| CBO                | class            | Numeric       |
+| Ca                 | class            | Numeric       |
+| Ce                 | class            | Numeric       |
+| DAM                | class            | Numeric       |
+| DIT                | class            | Numeric       |
+| IC                 | class            | Numeric       |
+| LCOM               | class            | Numeric       |
+| LCOM3              | class            | Numeric       |
+| LOC                | class            | Numeric       |
+| MFA                | class            | Numeric       |
+| MOA                | class            | Numeric       |
+| NOC                | class            | Numeric       |
+| NPM                | class            | Numeric       |
+| RFC                | class            | Numeric       |
+| WMC                | class            | Numeric       |
+| abstractClassCount | package          | Numeric       |
+| abstractness       | package          | Numeric       |
+| afferentCoupling   | package          | Numeric       |
+| afferents          | package          | Numeric       |
+| classCount         | package          | Numeric       |
+| concreteClassCount | package          | Numeric       |
+| containsCycle      | package          | Numeric       |
+| distance           | package          | Numeric       |
+| efferentCoupling   | package          | Numeric       |
+| efferents          | package          | Numeric       |
+| instability        | package          | Numeric       |
+| volatility         | package          | Numeric       |
 
 ```
 {
@@ -79,7 +81,7 @@ Output shows the metrics by packages and classes.
       "IC": 0,
       "Ca": 1,
       "MOA": 1
-    }    
+    }
   ],
   "name": "/home/warteruzannan/Workspace/consulta/conulta/",
   "packages": [
@@ -125,26 +127,24 @@ Output shows the metrics by packages and classes.
         "abstractness": 0.0
       },
       "dependencies": ["com.services", "com.models"]
-    }    
+    }
   ]
 }
 
 
 ```
 
+## Development Enviroment
 
-
-
-## Development Enviroment 
 ### Install dependencies using Mavem
+
 Execute `maven clean`
 
-
 ### Build:
+
 To build it tool execute the file `build.sh`
 
-
-### You can cite this using 
+### You can cite this using
 
 ```
 @INPROCEEDINGS{warteruzannan2020,
