@@ -16,6 +16,8 @@ Intelligent Smell Detector ([InSet](https://inset-tool.github.io/])) is a tool c
 
 ### Using JAR as CLI
 
+Download jar file [here](https://github.com/warteruzannan/ads-extrac-metrics/blob/master/jar/ads-extract-metrics-0.0.4.jar)
+
 `java -jar ads-extract-metrics-0.0.4.jar <path of java project> -p <path to output files>`
 
 ### Example of Output
