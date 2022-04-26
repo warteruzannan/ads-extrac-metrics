@@ -16,39 +16,39 @@ Intelligent Smell Detector (InSet) is a tool created by Warteruzannan Soyer Cunh
 
 Output shows the metrics by packages and classes. 
 
-| Name of metrics | Component | Value |
+| Name of metrics | Class or package | Type of Value |
 | ------ | ------ |------ |
-| AMC | cell | cell |
-|  | | |
-| CAM | cell | cell |
-| CBM | cell | cell |
-| CBO | cell | cell |
-| Ca | cell | cell |
-| Ce | cell | cell |
-| DAM | cell | cell |
-| DIT | cell | cell |
-| IC | cell | cell |
-| LCOM | cell | cell |
-| LCOM3 | cell | cell |
-| LOC | cell | cell |
-| MFA | cell | cell |
-| MOA | cell | cell |
-| NOC | cell | cell |
-| NPM | cell | cell |
-| RFC | cell | cell |
-| WMC | cell | cell |
-| abstractClassCount | cell | cell |
-| abstractness | cell | cell |
-| afferentCoupling | cell | cell |
-| afferents | cell | cell |
-| classCount | cell | cell |
-| concreteClassCount | cell | cell |
-| containsCycle | cell | cell |
-| distance | cell | cell |
-| efferentCoupling | cell | cell |
-| efferents | cell | cell |
-| instability | cell | cell |
-| volatility | cell | cell |
+| AMC | class | Numeric |
+| Name | class | String |
+| CAM | class | Numeric |
+| CBM | class | Numeric |
+| CBO | class | Numeric |
+| Ca | class | Numeric |
+| Ce | class | Numeric |
+| DAM | class | Numeric |
+| DIT | class | Numeric |
+| IC | class | Numeric |
+| LCOM | class | Numeric |
+| LCOM3 | class | Numeric |
+| LOC | class | Numeric |
+| MFA | class | Numeric |
+| MOA | class | Numeric |
+| NOC | class | Numeric |
+| NPM | class | Numeric |
+| RFC | class | Numeric |
+| WMC | class | Numeric |
+| abstractClassCount | package | Numeric |
+| abstractness | package | Numeric |
+| afferentCoupling | package | Numeric |
+| afferents | package | Numeric |
+| classCount | package | Numeric |
+| concreteClassCount | package | Numeric |
+| containsCycle | package | Numeric |
+| distance | package | Numeric |
+| efferentCoupling | package | Numeric |
+| efferents | package | Numeric |
+| instability | package | Numeric |
+| volatility | package | Numeric |
 
 ```
 {
